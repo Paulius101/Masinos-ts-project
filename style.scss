@@ -264,6 +264,10 @@ body {
                 flex-direction: column;
                 gap: 5px;
             }
+
+            .filters:hover {
+                transform: scale(1.05);
+            }
         }
 
         #list,
