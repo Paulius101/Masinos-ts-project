@@ -296,9 +296,9 @@ body .right_clm #list .entry:hover {
     margin: 0px;
     position: absolute;
     top: 30%;
-    left: 60%;
-    -webkit-transform: translate(-60%, -30%);
-            transform: translate(-60%, -30%);
+    left: 55%;
+    -webkit-transform: translate(-55%, -30%);
+            transform: translate(-55%, -30%);
   }
   body .left_clm,
   body .right_clm {
