@@ -3,17 +3,6 @@ const fuelTypes = {
     dyzelinas: "dyzelinas",
 }
 
-
-
-//  function enumToString(enumType:any): any {
-//      if (enumType === fuelTypes.benzinas) {
-//          return "benzinas"
-//      }
-//      if (enumType === fuelTypes.dyzelinas) {
-//          return "dyzelinas"
-//      }
-//  }
-
 const formSaveDOM = document.getElementById('add_car') as HTMLElement
 const formUpdateDOM = document.getElementById('update_car') as HTMLElement
 const listDOM = document.getElementById('list') as HTMLElement
@@ -21,6 +10,9 @@ const modelInputUpdate = formUpdateDOM.querySelector('model') as HTMLInputElemen
 const dateInputUpdate = formUpdateDOM.querySelector('date') as HTMLInputElement
 const colorInputUpdate = formUpdateDOM.querySelector('color') as HTMLInputElement
 const fuelInputUpdate = formUpdateDOM.querySelector('fuel') as HTMLInputElement
+
+console.log(modelInputUpdate);
+
 
 function renderAddForm(): string {
     return formSaveDOM.innerHTML = `<form>
@@ -34,6 +26,7 @@ function renderAddForm(): string {
                 </select>
 
                 <button id="save" type="button">Prideti</button>
+                <input type="reset"  id="reset" value="Atnaujinti forma">
             </form>`
 }
 
@@ -122,6 +115,7 @@ DOMs.saveFormButton.addEventListener("click", () => {
 
     display();
     newCar.renderUpdateForm();
+   
 })
 
 function display(): void {

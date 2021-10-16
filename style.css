@@ -72,7 +72,8 @@ body .left_clm form input::placeholder {
   color: #2B8982;
 }
 
-body .left_clm form button {
+body .left_clm form button,
+body .left_clm form #reset {
   color: #fff;
   font-size: 18px;
   background-color: #1D827A;
@@ -82,7 +83,8 @@ body .left_clm form button {
   padding: 10px 30px;
 }
 
-body .left_clm form button:hover {
+body .left_clm form button,
+body .left_clm form #reset:hover {
   cursor: pointer;
 }
 
