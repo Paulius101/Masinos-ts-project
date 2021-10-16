@@ -235,3 +235,28 @@ body {
 
     }
 }
+
+@media (max-width: 450px) {
+    body {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin: 0px;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+
+        .left_clm,
+        .right_clm {
+            width: 100%;
+
+        }
+
+        .right_clm .titles {
+            display: none;
+        }
+
+    }
+}
