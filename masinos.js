@@ -44,7 +44,7 @@ var Cars = /** @class */ (function () {
         }
     };
     Cars.prototype.renderUpdateForm = function () {
-        return formUpdateDOM.innerHTML = " <form>\n                <input id=\"model\" type=\"text\" placeholder=\"" + this.model + "\">\n                <input id=\"date\" type=\"date\" placeholder=\"" + this.date + "\">\n                <input id=\"color\" type=\"text\" placeholder=\"" + this.color + "\">\n                <input id=\"fuel\" list=\"fuel\" name=\"fuelTypes\" placeholder=\"" + this.fuel + "\">\n                <datalist id=\"fuelTypes\">\n                    <option value=\"" + fuelTypes.benzinas + "\">\n                    <option value=\"" + fuelTypes.dyzelinas + "\">\n                </datalist>\n\n                <button onclick=\"updateEntry(" + this.id + ")\" class=\"save\" type=\"button\">Atnaujinti</button>\n            </form>";
+        formUpdateDOM.innerHTML = " <form>\n                <input id=\"model\" type=\"text\" placeholder=\"" + this.model + "\">\n                <input id=\"date\" type=\"date\" placeholder=\"" + this.date + "\">\n                <input id=\"color\" type=\"text\" placeholder=\"" + this.color + "\">\n                <input id=\"fuel\" list=\"fuel\" name=\"fuelTypes\" placeholder=\"" + this.fuel + "\">\n                <datalist id=\"fuelTypes\">\n                    <option value=\"" + fuelTypes.benzinas + "\">\n                    <option value=\"" + fuelTypes.dyzelinas + "\">\n                </datalist>\n\n                <button onclick=\"updateEntry(" + this.id + ")\" class=\"save\" type=\"button\">Atnaujinti</button>\n            </form>";
     };
     return Cars;
 }());
@@ -58,7 +58,6 @@ DOMs.saveFormButton.addEventListener("click", function () {
     cars.push(newCar);
     console.log(cars);
     display();
-    renderAddForm();
     newCar.renderUpdateForm();
 });
 function display() {

@@ -38,8 +38,7 @@
      allFilter: document.getElementById('all') as HTMLButtonElement,
      dyzelFilter: document.getElementById('dyzel') as HTMLButtonElement,
      benzFilter: document.getElementById('benz') as HTMLButtonElement,
- )
- }
+  }
 
 
 
@@ -78,8 +77,8 @@
      }
 
 
-     public renderUpdateForm(): string {
-         return formUpdateDOM.innerHTML = ` <form>
+     public renderUpdateForm():void {
+           formUpdateDOM.innerHTML = ` <form>
                 <input id="model" type="text" placeholder="${this.model}">
                 <input id="date" type="date" placeholder="${this.date}">
                 <input id="color" type="text" placeholder="${this.color}">
@@ -91,6 +90,7 @@
 
                 <button onclick="updateEntry(${this.id})" class="save" type="button">Atnaujinti</button>
             </form>`
+            
      }
 
  }
@@ -109,7 +109,6 @@
      console.log(cars);
 
      display();
-     renderAddForm();
      newCar.renderUpdateForm();
  })
 
