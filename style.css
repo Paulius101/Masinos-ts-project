@@ -1,0 +1,205 @@
+body {
+  background-color: #41C9BD;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 4%;
+  max-width: 1000px;
+  margin: 40px calc(50% - 500px);
+}
+
+body .left_clm {
+  width: 30%;
+}
+
+body .left_clm .hide {
+  display: none;
+}
+
+body .left_clm form {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+  border: 1px dashed white;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+body .left_clm form input {
+  color: #2B8982;
+  border: 1px solid #439790;
+  border-radius: 3px;
+  line-height: 12px;
+  padding: 10px 0px 10px 8px;
+}
+
+body .left_clm form input:hover {
+  background-color: #41C9BD;
+}
+
+body .left_clm form input::-webkit-input-placeholder {
+  font-size: 18px;
+  color: #2B8982;
+}
+
+body .left_clm form input:-ms-input-placeholder {
+  font-size: 18px;
+  color: #2B8982;
+}
+
+body .left_clm form input::-ms-input-placeholder {
+  font-size: 18px;
+  color: #2B8982;
+}
+
+body .left_clm form input::placeholder {
+  font-size: 18px;
+  color: #2B8982;
+}
+
+body .left_clm form button {
+  color: #fff;
+  font-size: 18px;
+  background-color: #1D827A;
+  border: none;
+  border-radius: 3px;
+  line-height: 18px;
+  padding: 10px 30px;
+}
+
+body .left_clm form button:hover {
+  cursor: pointer;
+}
+
+body .right_clm {
+  width: 66%;
+}
+
+body .right_clm .filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .right_clm .filters button {
+  color: #2B8982;
+  font-size: 18px;
+  background-color: #fff;
+  border: none;
+  border-radius: 3px;
+  line-height: 18px;
+  padding: 10px 20px;
+}
+
+body .right_clm .filters button:hover {
+  color: #fff;
+  background-color: #1D827A;
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+body .right_clm .titles {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #2B8982;
+  line-height: 24px;
+  font-size: 18px;
+  background-color: #fff;
+}
+
+body .right_clm .titles h2:first-child {
+  margin-left: 15px;
+}
+
+body .right_clm .titles h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+body .right_clm .titles .actions {
+  margin-left: 120px;
+}
+
+body .right_clm #list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 5px;
+}
+
+body .right_clm #list .entry {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #2B8982;
+  line-height: 24px;
+  font-size: 18px;
+  background-color: #fff;
+  opacity: 0.7;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .right_clm #list .entry .entry_parameter:first-of-type {
+  margin-left: 15px;
+}
+
+body .right_clm #list .entry .entry_parameter {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+body .right_clm #list .entry .actions {
+  margin-left: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .right_clm #list .entry .actions img {
+  width: 20px;
+  height: auto;
+  margin: 5px 5px;
+}
+
+body .right_clm #list .entry .actions img:hover {
+  cursor: pointer;
+}
+
+body .right_clm #list .entry:hover {
+  opacity: 1;
+}

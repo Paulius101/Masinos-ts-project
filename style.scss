@@ -1,0 +1,166 @@
+$bgColorElement: #fff;
+$bgColorElement1:#1D827A;
+$bgColorBody:#41C9BD;
+$textColor: #2B8982;
+$textColor1:#fff;
+$borderColor: #439790;
+
+body {
+    background-color: $bgColorBody;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4%;
+    max-width: 1000px;
+    margin: 40px calc(50% - 500px);
+
+
+    .left_clm {
+        width: 30%;
+
+        .hide {
+            display: none;
+        }
+
+        form {
+            background-color: $bgColorElement;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 10px;
+            border: 1px dashed white;
+            padding: 10px 15px;
+            border-radius: 4px;
+
+            input {
+                color: $textColor;
+                border: 1px solid $borderColor;
+                border-radius: 3px;
+                line-height: 12px;
+                padding: 10px 0px 10px 8px;
+            }
+
+            input:hover {
+                background-color: $bgColorBody;
+            }
+
+            input::placeholder {
+                font-size: 18px;
+                color: $textColor;
+            }
+
+            button {
+                color: $textColor1;
+                font-size: 18px;
+                background-color: $bgColorElement1;
+                border: none;
+                border-radius: 3px;
+                line-height: 18px;
+                padding: 10px 30px;
+            }
+
+            button:hover {
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .right_clm {
+        width: 66%;
+
+        .filters {
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                color: $textColor;
+                font-size: 18px;
+                background-color: $bgColorElement;
+                border: none;
+                border-radius: 3px;
+                line-height: 18px;
+                padding: 10px 20px;
+            }
+
+            button:hover {
+                color: $textColor1;
+                background-color: $bgColorElement1;
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+
+        .titles {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: $textColor;
+            line-height: 24px;
+            font-size: 18px;
+            background-color: $bgColorElement;
+
+            h2:first-child {
+                margin-left: 15px;
+            }
+
+            h2 {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            .actions {
+                margin-left: 120px;
+            }
+        }
+
+        #list {
+            display: flex;
+            flex-direction: column;
+            margin-top: 5px;
+
+            .entry {
+                display: flex;
+                justify-content: space-between;
+                color: $textColor;
+                line-height: 24px;
+                font-size: 18px;
+                background-color: $bgColorElement;
+                opacity: 0.7;
+                align-items: center;
+
+
+
+                .entry_parameter:first-of-type {
+                    margin-left: 15px;
+                }
+
+                .entry_parameter {
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+
+                .actions {
+                    margin-left: 40px;
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 20px;
+                        height: auto;
+                        margin: 5px 5px;
+                    }
+
+                    img:hover {
+                        cursor: pointer;
+                    }
+                }
+
+            }
+
+            .entry:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

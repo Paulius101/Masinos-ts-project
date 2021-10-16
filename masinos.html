@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masinos</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./masinos.js" defer></script>
+</head>
+
+<body>
+
+    <div class="left_clm">
+        <div class="form" id="add_car"></div>
+        <div class="form  hide" id="update_car"></div>
+    </div>
+
+    <div class="right_clm">
+
+        <div class="filters">
+            <button id="all" onclick="filterAll()" type="button">Visi automobiliai</button>
+            <button id="dyzel" onclick="filterDyzel()" type="button">Dyzeliniai automobiliai</button>
+            <button id="benz" onclick="filterBenz()" type="button">Benzininiai automobiliai</button>
+        </div>
+
+        <div class="titles">
+            <h2>Modelis</h2>
+            <h2>Pagaminimo data</h2>
+            <h2>Spalva</h2>
+            <h2>Kuro tipas</h2>
+            <div class="actions">
+            </div>
+        </div>
+
+        <div id="list">
+        </div>
+
+    </div>
+
+</body>
+
+</html>
