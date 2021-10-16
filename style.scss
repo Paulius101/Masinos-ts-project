@@ -245,8 +245,8 @@ body {
         margin: 0px;
         position: absolute;
         top: 30%;
-        left: 50%;
-        transform: translate(-50%, -30%);
+        left: 60%;
+        transform: translate(-60%, -30%);
 
         .left_clm,
         .right_clm {
@@ -254,9 +254,31 @@ body {
 
         }
 
-        .right_clm .titles {
-            display: none;
+        .right_clm {
+            .titles {
+                display: none;
+            }
+
+            .filters {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
         }
 
+        #list,
+        .entry,
+        .actions {
+            margin-left: 0px;
+        }
+
+        #list,
+        .entry {
+            width: 100%;
+
+            .entry_parameter {
+                margin-left: 5px;
+            }
+        }
     }
 }

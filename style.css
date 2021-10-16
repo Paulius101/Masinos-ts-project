@@ -296,9 +296,9 @@ body .right_clm #list .entry:hover {
     margin: 0px;
     position: absolute;
     top: 30%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -30%);
-            transform: translate(-50%, -30%);
+    left: 60%;
+    -webkit-transform: translate(-60%, -30%);
+            transform: translate(-60%, -30%);
   }
   body .left_clm,
   body .right_clm {
@@ -306,5 +306,28 @@ body .right_clm #list .entry:hover {
   }
   body .right_clm .titles {
     display: none;
+  }
+  body .right_clm .filters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 5px;
+  }
+  body #list,
+  body .entry,
+  body .actions {
+    margin-left: 0px;
+  }
+  body #list,
+  body .entry {
+    width: 100%;
+  }
+  body #list .entry_parameter,
+  body .entry .entry_parameter {
+    margin-left: 5px;
   }
 }
