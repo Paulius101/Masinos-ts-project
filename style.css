@@ -39,7 +39,8 @@ body .left_clm form {
   border-radius: 4px;
 }
 
-body .left_clm form input {
+body .left_clm form input,
+body .left_clm form select {
   color: #2B8982;
   border: 1px solid #439790;
   border-radius: 3px;

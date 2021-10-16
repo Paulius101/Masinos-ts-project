@@ -32,7 +32,8 @@ body {
             padding: 10px 15px;
             border-radius: 4px;
 
-            input {
+            input,
+            select {
                 color: $textColor;
                 border: 1px solid $borderColor;
                 border-radius: 3px;

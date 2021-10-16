@@ -1,9 +1,16 @@
 "use strict";
-var fuelTypes;
-(function (fuelTypes) {
-    fuelTypes["benzinas"] = "benzinas";
-    fuelTypes["dyzelinas"] = "dyzelinas";
-})(fuelTypes || (fuelTypes = {}));
+var fuelTypes = {
+    benzinas: "benzinas",
+    dyzelinas: "dyzelinas",
+};
+//  function enumToString(enumType:any): any {
+//      if (enumType === fuelTypes.benzinas) {
+//          return "benzinas"
+//      }
+//      if (enumType === fuelTypes.dyzelinas) {
+//          return "dyzelinas"
+//      }
+//  }
 var formSaveDOM = document.getElementById('add_car');
 var formUpdateDOM = document.getElementById('update_car');
 var listDOM = document.getElementById('list');
@@ -12,7 +19,7 @@ var dateInputUpdate = formUpdateDOM.querySelector('date');
 var colorInputUpdate = formUpdateDOM.querySelector('color');
 var fuelInputUpdate = formUpdateDOM.querySelector('fuel');
 function renderAddForm() {
-    return formSaveDOM.innerHTML = "<form>\n                <input id=\"model\" type=\"text\" placeholder=\"Modelis\">\n                <input id=\"date\" type=\"date\" placeholder=\"Pagaminimo data\">\n                <input id=\"color\" type=\"text\" placeholder=\"Spalva\">\n                <input id=\"fuel\" list=\"fuelList\" name=\"fuelTypes\" placeholder=\"Kuro tipas\">\n                <datalist id=\"fuelList\">\n                    <option value=\"" + fuelTypes.benzinas + "\">\n                    <option value=\"" + fuelTypes.dyzelinas + "\">\n                </datalist>\n\n                <button id=\"save\" type=\"button\">Prideti</button>\n            </form>";
+    return formSaveDOM.innerHTML = "<form>\n                <input id=\"model\" type=\"text\" placeholder=\"Modelis\">\n                <input id=\"date\" type=\"date\" placeholder=\"Pagaminimo data\">\n                <input id=\"color\" type=\"text\" placeholder=\"Spalva\">\n                <select id=\"fuel\">\n                <option value=\"\" disabled selected>Kuro tipas</option>\n                    <option value=\"" + fuelTypes.benzinas + "\">Benzinas</option>\n                    <option value=\"" + fuelTypes.dyzelinas + "\">Dyzelinas</option>\n                </select>\n\n                <button id=\"save\" type=\"button\">Prideti</button>\n            </form>";
 }
 renderAddForm();
 var DOMs = {
@@ -44,7 +51,7 @@ var Cars = /** @class */ (function () {
         }
     };
     Cars.prototype.renderUpdateForm = function () {
-        formUpdateDOM.innerHTML = " <form>\n                <input id=\"model\" type=\"text\" placeholder=\"" + this.model + "\">\n                <input id=\"date\" type=\"date\" placeholder=\"" + this.date + "\">\n                <input id=\"color\" type=\"text\" placeholder=\"" + this.color + "\">\n                <input id=\"fuel\" list=\"fuel\" name=\"fuelTypes\" placeholder=\"" + this.fuel + "\">\n                <datalist id=\"fuelTypes\">\n                    <option value=\"" + fuelTypes.benzinas + "\">\n                    <option value=\"" + fuelTypes.dyzelinas + "\">\n                </datalist>\n\n                <button onclick=\"updateEntry(" + this.id + ")\" class=\"save\" type=\"button\">Atnaujinti</button>\n            </form>";
+        formUpdateDOM.innerHTML = " <form>\n                <input id=\"model\" type=\"text\" placeholder=\"" + this.model + "\">\n                <input id=\"date\" type=\"date\" placeholder=\"" + this.date + "\">\n                <input id=\"color\" type=\"text\" placeholder=\"" + this.color + "\">\n                 <select id=\"fuel\">\n                <option value=\"\" disabled selected>Kuro tipas</option>\n                    <option value=\"" + fuelTypes.benzinas + "\">Benzinas</option>\n                    <option value=\"" + fuelTypes.dyzelinas + "\">Dyzelinas</option>\n                </select>\n\n                <button onclick=\"updateEntry(" + this.id + ")\" class=\"save\" type=\"button\">Atnaujinti</button>\n            </form>";
     };
     return Cars;
 }());
