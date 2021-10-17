@@ -113,6 +113,14 @@ function saveFormButton() {
     const color = DOMs.colorInput.value;
     const fuel = DOMs.fuelInput.value;
 
+     if (model === '' ||
+        date === '' ||
+        color === '' ||
+        fuel === '') {
+        alert("ERROR, truksta informacijos")
+        return
+    };
+
     const newCar = new Cars(model, date, color, fuel)
 
     cars.push(newCar)
