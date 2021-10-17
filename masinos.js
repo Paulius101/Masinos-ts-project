@@ -67,24 +67,33 @@ function display() {
         car.printEntry(listDOM);
     }
 }
-function editEntry(id) {
-    formSaveDOM.classList.add('hide');
-    formUpdateDOM.classList.remove('hide');
-}
 function deleteEntry(id) {
     cars = cars.filter(function (car) { return car.id !== id; });
     display();
 }
-function updateEntry(id) {
+function editEntry(id) {
     for (var _i = 0, cars_2 = cars; _i < cars_2.length; _i++) {
         var car = cars_2[_i];
         if (car.id === id) {
-            console.log("Atnaujinu car");
-            car.model = document.getElementById('model').value;
+            car.renderUpdateForm();
         }
     }
-    // cars.push(newCar)
-    console.log(cars);
+    formSaveDOM.classList.add('hide');
+    formUpdateDOM.classList.remove('hide');
+}
+function updateEntry(id) {
+    formSaveDOM.innerHTML = '';
+    for (var _i = 0, cars_3 = cars; _i < cars_3.length; _i++) {
+        var car = cars_3[_i];
+        if (car.id === id) {
+            console.log("Atnaujinu car");
+            car.model = document.getElementById('model').value;
+            car.color = document.getElementById('color').value;
+            car.date = document.getElementById('date').value;
+            car.fuel = document.getElementById('fuel').value;
+            renderAddForm();
+        }
+    }
     formSaveDOM.classList.remove('hide');
     formUpdateDOM.classList.add('hide');
     display();

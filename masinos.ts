@@ -48,9 +48,9 @@ const DOMs = {
 
 class Cars {
     public model: string;
-    public readonly date: string;
-    public readonly color: string;
-    public readonly fuel: string;
+    public date: string;
+    public color: string;
+    public fuel: string;
     public id: number;
 
     constructor(model: string, date: string, color: string, fuel: string = fuelTypes.benzinas, id ? : number) {
@@ -125,30 +125,33 @@ function display(): void {
     }
 }
 
-function editEntry(id: number): void {
-    formSaveDOM.classList.add('hide');
-    formUpdateDOM.classList.remove('hide')
-}
-
 function deleteEntry(id: number): void {
     cars = cars.filter((car) => car.id !== id)
     display()
 }
 
-function updateEntry(id: number): void {
+function editEntry(id: number): void {
+    for (const car of cars) {
+        if (car.id === id) {
+            car.renderUpdateForm()
+        }
+    }
+    formSaveDOM.classList.add('hide');
+    formUpdateDOM.classList.remove('hide')
+}
 
+function updateEntry(id: number): void {
+    formSaveDOM.innerHTML = '';
     for (const car of cars) {
         if (car.id === id) {
             console.log("Atnaujinu car");
             car.model = (document.getElementById('model') as HTMLInputElement).value
-
+            car.color = (document.getElementById('color') as HTMLInputElement).value
+            car.date = (document.getElementById('date') as HTMLInputElement).value
+            car.fuel = (document.getElementById('fuel') as HTMLInputElement).value
+            renderAddForm()
         }
     }
-
-
-    // cars.push(newCar)
-    console.log(cars);
-
     formSaveDOM.classList.remove('hide');
     formUpdateDOM.classList.add('hide')
     display();
