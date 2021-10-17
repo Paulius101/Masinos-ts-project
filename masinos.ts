@@ -27,7 +27,7 @@ function renderAddForm(): string {
                     <option value="${fuelTypes.dyzelinas}">Dyzelinas</option>
                 </select>
 
-                <button id="save" type="button">Prideti</button>
+                <button id="save"  onclick="saveFormButton() "type="button">Prideti</button>
                 <input type="reset"  id="reset" value="Atnaujinti forma">
             </form>`
 }
@@ -106,7 +106,8 @@ const CARS_LOCAL_STORAGE_KEY = "vrumvrum";
 
 let cars: Cars[] = [];
 
-DOMs.saveFormButton.addEventListener("click", () => {
+function saveFormButton() {
+    formUpdateDOM.innerHTML = '';
     const model = DOMs.modelInput.value;
     const date = DOMs.dateInput.value;
     const color = DOMs.colorInput.value;
@@ -118,9 +119,8 @@ DOMs.saveFormButton.addEventListener("click", () => {
     console.log(cars);
 
     display();
-    newCar.renderUpdateForm();
     saveCarsToStorage()
-})
+}
 
 function display(): void {
     listDOM.innerHTML = "";
@@ -154,10 +154,10 @@ function updateEntry(id: number): void {
             car.color = (document.getElementById('color') as HTMLInputElement).value
             car.date = (document.getElementById('date') as HTMLInputElement).value
             car.fuel = (document.getElementById('fuel') as HTMLInputElement).value
-            formUpdateDOM.innerHTML = '';
-            renderAddForm()
         }
     }
+    renderAddForm()
+    formUpdateDOM.innerHTML = '';
     formSaveDOM.classList.remove('hide');
     formUpdateDOM.classList.add('hide')
     saveCarsToStorage()

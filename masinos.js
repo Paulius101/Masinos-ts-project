@@ -7,7 +7,7 @@ var formSaveDOM = document.getElementById('add_car');
 var formUpdateDOM = document.getElementById('update_car');
 var listDOM = document.getElementById('list');
 function renderAddForm() {
-    return formSaveDOM.innerHTML = "<form>\n                <input id=\"model\" type=\"text\" placeholder=\"Modelis\">\n                <input id=\"date\" type=\"date\" placeholder=\"Pagaminimo data\">\n                <input id=\"color\" type=\"text\" placeholder=\"Spalva\">\n                <select id=\"fuel\">\n                <option value=\"\" disabled selected>Kuro tipas</option>\n                    <option value=\"" + fuelTypes.benzinas + "\">Benzinas</option>\n                    <option value=\"" + fuelTypes.dyzelinas + "\">Dyzelinas</option>\n                </select>\n\n                <button id=\"save\" type=\"button\">Prideti</button>\n                <input type=\"reset\"  id=\"reset\" value=\"Atnaujinti forma\">\n            </form>";
+    return formSaveDOM.innerHTML = "<form>\n                <input id=\"model\" type=\"text\" placeholder=\"Modelis\">\n                <input id=\"date\" type=\"date\" placeholder=\"Pagaminimo data\">\n                <input id=\"color\" type=\"text\" placeholder=\"Spalva\">\n                <select id=\"fuel\">\n                <option value=\"\" disabled selected>Kuro tipas</option>\n                    <option value=\"" + fuelTypes.benzinas + "\">Benzinas</option>\n                    <option value=\"" + fuelTypes.dyzelinas + "\">Dyzelinas</option>\n                </select>\n\n                <button id=\"save\"  onclick=\"saveFormButton() \"type=\"button\">Prideti</button>\n                <input type=\"reset\"  id=\"reset\" value=\"Atnaujinti forma\">\n            </form>";
 }
 renderAddForm();
 var DOMs = {
@@ -45,7 +45,8 @@ var Cars = /** @class */ (function () {
 }());
 var CARS_LOCAL_STORAGE_KEY = "vrumvrum";
 var cars = [];
-DOMs.saveFormButton.addEventListener("click", function () {
+function saveFormButton() {
+    formUpdateDOM.innerHTML = '';
     var model = DOMs.modelInput.value;
     var date = DOMs.dateInput.value;
     var color = DOMs.colorInput.value;
@@ -54,9 +55,8 @@ DOMs.saveFormButton.addEventListener("click", function () {
     cars.push(newCar);
     console.log(cars);
     display();
-    newCar.renderUpdateForm();
     saveCarsToStorage();
-});
+}
 function display() {
     listDOM.innerHTML = "";
     for (var _i = 0, cars_1 = cars; _i < cars_1.length; _i++) {
@@ -89,10 +89,10 @@ function updateEntry(id) {
             car.color = document.getElementById('color').value;
             car.date = document.getElementById('date').value;
             car.fuel = document.getElementById('fuel').value;
-            formUpdateDOM.innerHTML = '';
-            renderAddForm();
         }
     }
+    renderAddForm();
+    formUpdateDOM.innerHTML = '';
     formSaveDOM.classList.remove('hide');
     formUpdateDOM.classList.add('hide');
     saveCarsToStorage();
