@@ -139,6 +139,7 @@ function editEntry(id: number): void {
     for (const car of cars) {
         if (car.id === id) {
             car.renderUpdateForm()
+              formSaveDOM.innerHTML = '';
         }
     }
     formSaveDOM.classList.add('hide');
@@ -146,7 +147,6 @@ function editEntry(id: number): void {
 }
 
 function updateEntry(id: number): void {
-    formSaveDOM.innerHTML = '';
     for (const car of cars) {
         if (car.id === id) {
             console.log("Atnaujinu car");

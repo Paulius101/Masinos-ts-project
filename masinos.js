@@ -74,13 +74,13 @@ function editEntry(id) {
         var car = cars_2[_i];
         if (car.id === id) {
             car.renderUpdateForm();
+            formSaveDOM.innerHTML = '';
         }
     }
     formSaveDOM.classList.add('hide');
     formUpdateDOM.classList.remove('hide');
 }
 function updateEntry(id) {
-    formSaveDOM.innerHTML = '';
     for (var _i = 0, cars_3 = cars; _i < cars_3.length; _i++) {
         var car = cars_3[_i];
         if (car.id === id) {
