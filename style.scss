@@ -19,7 +19,7 @@ body {
     gap: 4%;
     width: 1200px;
     margin: 40px calc(50% - 600px);
-    animation: backgroundImages 15s linear infinite;
+    animation: backgroundImages 40s ease-in-out infinite;
 
     @keyframes backgroundImages {
         0% {
