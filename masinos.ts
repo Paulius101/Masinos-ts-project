@@ -6,12 +6,6 @@ const fuelTypes = {
 const formSaveDOM = document.getElementById('add_car') as HTMLElement
 const formUpdateDOM = document.getElementById('update_car') as HTMLElement
 const listDOM = document.getElementById('list') as HTMLElement
-const modelInputUpdate = formUpdateDOM.querySelector('model') as HTMLInputElement
-const dateInputUpdate = formUpdateDOM.querySelector('date') as HTMLInputElement
-const colorInputUpdate = formUpdateDOM.querySelector('color') as HTMLInputElement
-const fuelInputUpdate = formUpdateDOM.querySelector('fuel') as HTMLInputElement
-
-console.log(modelInputUpdate);
 
 
 function renderAddForm(): string {
@@ -100,6 +94,8 @@ class Cars {
 
 }
 
+const CARS_LOCAL_STORAGE_KEY = "vrumvrum";
+
 let cars: Cars[] = [];
 
 DOMs.saveFormButton.addEventListener("click", () => {
@@ -115,7 +111,7 @@ DOMs.saveFormButton.addEventListener("click", () => {
 
     display();
     newCar.renderUpdateForm();
-
+ saveCarsToStorage()
 })
 
 function display(): void {
@@ -127,6 +123,7 @@ function display(): void {
 
 function deleteEntry(id: number): void {
     cars = cars.filter((car) => car.id !== id)
+     saveCarsToStorage()
     display()
 }
 
@@ -149,11 +146,13 @@ function updateEntry(id: number): void {
             car.color = (document.getElementById('color') as HTMLInputElement).value
             car.date = (document.getElementById('date') as HTMLInputElement).value
             car.fuel = (document.getElementById('fuel') as HTMLInputElement).value
-            renderAddForm()
+             formUpdateDOM.innerHTML = '';
+             renderAddForm()
         }
     }
     formSaveDOM.classList.remove('hide');
     formUpdateDOM.classList.add('hide')
+    saveCarsToStorage()
     display();
 }
 
@@ -177,4 +176,10 @@ function filterBenz(): void {
     for (const car of benz) {
         car.printEntry(listDOM)
     }
+}
+
+function saveCarsToStorage(): void {
+    const carsString = JSON.stringify(cars);
+
+    window.localStorage.setItem(CARS_LOCAL_STORAGE_KEY, carsString);
 }

@@ -6,11 +6,6 @@ var fuelTypes = {
 var formSaveDOM = document.getElementById('add_car');
 var formUpdateDOM = document.getElementById('update_car');
 var listDOM = document.getElementById('list');
-var modelInputUpdate = formUpdateDOM.querySelector('model');
-var dateInputUpdate = formUpdateDOM.querySelector('date');
-var colorInputUpdate = formUpdateDOM.querySelector('color');
-var fuelInputUpdate = formUpdateDOM.querySelector('fuel');
-console.log(modelInputUpdate);
 function renderAddForm() {
     return formSaveDOM.innerHTML = "<form>\n                <input id=\"model\" type=\"text\" placeholder=\"Modelis\">\n                <input id=\"date\" type=\"date\" placeholder=\"Pagaminimo data\">\n                <input id=\"color\" type=\"text\" placeholder=\"Spalva\">\n                <select id=\"fuel\">\n                <option value=\"\" disabled selected>Kuro tipas</option>\n                    <option value=\"" + fuelTypes.benzinas + "\">Benzinas</option>\n                    <option value=\"" + fuelTypes.dyzelinas + "\">Dyzelinas</option>\n                </select>\n\n                <button id=\"save\" type=\"button\">Prideti</button>\n                <input type=\"reset\"  id=\"reset\" value=\"Atnaujinti forma\">\n            </form>";
 }
@@ -48,6 +43,7 @@ var Cars = /** @class */ (function () {
     };
     return Cars;
 }());
+var CARS_LOCAL_STORAGE_KEY = "vrumvrum";
 var cars = [];
 DOMs.saveFormButton.addEventListener("click", function () {
     var model = DOMs.modelInput.value;
@@ -59,6 +55,7 @@ DOMs.saveFormButton.addEventListener("click", function () {
     console.log(cars);
     display();
     newCar.renderUpdateForm();
+    saveCarsToStorage();
 });
 function display() {
     listDOM.innerHTML = "";
@@ -69,6 +66,7 @@ function display() {
 }
 function deleteEntry(id) {
     cars = cars.filter(function (car) { return car.id !== id; });
+    saveCarsToStorage();
     display();
 }
 function editEntry(id) {
@@ -91,11 +89,13 @@ function updateEntry(id) {
             car.color = document.getElementById('color').value;
             car.date = document.getElementById('date').value;
             car.fuel = document.getElementById('fuel').value;
+            formUpdateDOM.innerHTML = '';
             renderAddForm();
         }
     }
     formSaveDOM.classList.remove('hide');
     formUpdateDOM.classList.add('hide');
+    saveCarsToStorage();
     display();
 }
 function filterAll() {
@@ -118,4 +118,8 @@ function filterBenz() {
         var car = benz_1[_i];
         car.printEntry(listDOM);
     }
+}
+function saveCarsToStorage() {
+    var carsString = JSON.stringify(cars);
+    window.localStorage.setItem(CARS_LOCAL_STORAGE_KEY, carsString);
 }
