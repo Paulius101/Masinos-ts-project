@@ -3,6 +3,14 @@ const fuelTypes = {
     dyzelinas: "dyzelinas",
 }
 
+interface carsInterface {
+    model: string;
+    date: string;
+    color: string;
+    fuel: string;
+    id: number;
+}
+
 const formSaveDOM = document.getElementById('add_car') as HTMLElement
 const formUpdateDOM = document.getElementById('update_car') as HTMLElement
 const listDOM = document.getElementById('list') as HTMLElement
@@ -111,7 +119,7 @@ DOMs.saveFormButton.addEventListener("click", () => {
 
     display();
     newCar.renderUpdateForm();
- saveCarsToStorage()
+    saveCarsToStorage()
 })
 
 function display(): void {
@@ -123,7 +131,7 @@ function display(): void {
 
 function deleteEntry(id: number): void {
     cars = cars.filter((car) => car.id !== id)
-     saveCarsToStorage()
+    saveCarsToStorage()
     display()
 }
 
@@ -146,8 +154,8 @@ function updateEntry(id: number): void {
             car.color = (document.getElementById('color') as HTMLInputElement).value
             car.date = (document.getElementById('date') as HTMLInputElement).value
             car.fuel = (document.getElementById('fuel') as HTMLInputElement).value
-             formUpdateDOM.innerHTML = '';
-             renderAddForm()
+            formUpdateDOM.innerHTML = '';
+            renderAddForm()
         }
     }
     formSaveDOM.classList.remove('hide');
@@ -183,3 +191,37 @@ function saveCarsToStorage(): void {
 
     window.localStorage.setItem(CARS_LOCAL_STORAGE_KEY, carsString);
 }
+
+function loadCars(): void {
+    const c = window.localStorage.getItem(CARS_LOCAL_STORAGE_KEY);
+
+    if (!c) {
+        return;
+    }
+
+    // !"" - true
+    // !"{}" - false
+
+    const carsWithoutMethods: carsInterface[] = JSON.parse(c);
+
+    for (const car of carsWithoutMethods) {
+        const newCar = new Cars(
+            car.model,
+            car.date,
+            car.color,
+            car.fuel,
+            car.id,)
+
+            cars.push(newCar);
+        }
+
+        const id = cars.map((car) => {
+            return car.id;
+        });
+
+        console.log(id);
+
+        display();
+    }
+
+    loadCars()

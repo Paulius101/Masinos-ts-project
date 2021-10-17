@@ -123,3 +123,23 @@ function saveCarsToStorage() {
     var carsString = JSON.stringify(cars);
     window.localStorage.setItem(CARS_LOCAL_STORAGE_KEY, carsString);
 }
+function loadCars() {
+    var c = window.localStorage.getItem(CARS_LOCAL_STORAGE_KEY);
+    if (!c) {
+        return;
+    }
+    // !"" - true
+    // !"{}" - false
+    var carsWithoutMethods = JSON.parse(c);
+    for (var _i = 0, carsWithoutMethods_1 = carsWithoutMethods; _i < carsWithoutMethods_1.length; _i++) {
+        var car = carsWithoutMethods_1[_i];
+        var newCar = new Cars(car.model, car.date, car.color, car.fuel, car.id);
+        cars.push(newCar);
+    }
+    var id = cars.map(function (car) {
+        return car.id;
+    });
+    console.log(id);
+    display();
+}
+loadCars();
