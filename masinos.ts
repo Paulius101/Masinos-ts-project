@@ -47,7 +47,7 @@ const DOMs = {
 
 
 class Cars {
-    public readonly model: string;
+    public model: string;
     public readonly date: string;
     public readonly color: string;
     public readonly fuel: string;
@@ -115,7 +115,7 @@ DOMs.saveFormButton.addEventListener("click", () => {
 
     display();
     newCar.renderUpdateForm();
-   
+
 })
 
 function display(): void {
@@ -136,14 +136,17 @@ function deleteEntry(id: number): void {
 }
 
 function updateEntry(id: number): void {
-    const model = modelInputUpdate.value;
-    const date = dateInputUpdate.value;
-    const color = colorInputUpdate.value;
-    const fuel = fuelInputUpdate.value;
 
-    const newCar = new Cars(model, date, color, fuel)
+    for (const car of cars) {
+        if (car.id === id) {
+            console.log("Atnaujinu car");
+            car.model = (document.getElementById('model') as HTMLInputElement).value
 
-    cars.push(newCar)
+        }
+    }
+
+
+    // cars.push(newCar)
     console.log(cars);
 
     formSaveDOM.classList.remove('hide');

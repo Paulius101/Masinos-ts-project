@@ -76,12 +76,14 @@ function deleteEntry(id) {
     display();
 }
 function updateEntry(id) {
-    var model = modelInputUpdate.value;
-    var date = dateInputUpdate.value;
-    var color = colorInputUpdate.value;
-    var fuel = fuelInputUpdate.value;
-    var newCar = new Cars(model, date, color, fuel);
-    cars.push(newCar);
+    for (var _i = 0, cars_2 = cars; _i < cars_2.length; _i++) {
+        var car = cars_2[_i];
+        if (car.id === id) {
+            console.log("Atnaujinu car");
+            car.model = document.getElementById('model').value;
+        }
+    }
+    // cars.push(newCar)
     console.log(cars);
     formSaveDOM.classList.remove('hide');
     formUpdateDOM.classList.add('hide');
