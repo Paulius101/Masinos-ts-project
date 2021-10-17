@@ -260,7 +260,7 @@ body .right_clm #list .entry:hover {
     gap: 50px;
     margin: 0px;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -30%);
             transform: translate(-50%, -30%);
@@ -286,7 +286,7 @@ body .right_clm #list .entry:hover {
     gap: 50px;
     margin: 0px;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -30%);
             transform: translate(-50%, -30%);
@@ -312,7 +312,7 @@ body .right_clm #list .entry:hover {
     gap: 50px;
     margin: 0px;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -30%);
             transform: translate(-50%, -30%);
@@ -341,7 +341,7 @@ body .right_clm #list .entry:hover {
     gap: 50px;
     margin: 0px;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 55%;
     -webkit-transform: translate(-55%, -30%);
             transform: translate(-55%, -30%);
