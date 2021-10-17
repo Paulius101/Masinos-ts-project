@@ -1,4 +1,10 @@
 body {
+  background-image: url(./img/bgIMG.png);
+  background-size: contain;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   background-color: #41C9BD;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,6 +18,38 @@ body {
   gap: 4%;
   width: 1200px;
   margin: 40px calc(50% - 600px);
+  -webkit-animation: backgroundImages 15s linear infinite;
+          animation: backgroundImages 15s linear infinite;
+}
+
+@-webkit-keyframes backgroundImages {
+  0% {
+    background-image: url(./img/bgIMG.png);
+  }
+  33% {
+    background-image: url(./img/bgIMG1.png);
+  }
+  66% {
+    background-image: url(./img/bgIMG2.png);
+  }
+  100% {
+    background-image: url(./img/bgIMG3.png);
+  }
+}
+
+@keyframes backgroundImages {
+  0% {
+    background-image: url(./img/bgIMG.png);
+  }
+  33% {
+    background-image: url(./img/bgIMG1.png);
+  }
+  66% {
+    background-image: url(./img/bgIMG2.png);
+  }
+  100% {
+    background-image: url(./img/bgIMG3.png);
+  }
 }
 
 body .left_clm {

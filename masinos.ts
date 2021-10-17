@@ -214,13 +214,6 @@ function loadCars(): void {
 
             cars.push(newCar);
         }
-
-        const id = cars.map((car) => {
-            return car.id;
-        });
-
-        console.log(id);
-
         display();
     }
 

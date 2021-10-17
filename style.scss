@@ -6,6 +6,12 @@ $textColor1:#fff;
 $borderColor: #439790;
 
 body {
+    background-image: url(./img/bgIMG.png);
+    background-size: contain;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
     background-color: $bgColorBody;
     display: flex;
     flex-direction: row;
@@ -13,7 +19,26 @@ body {
     gap: 4%;
     width: 1200px;
     margin: 40px calc(50% - 600px);
+    animation: backgroundImages 15s linear infinite;
 
+    @keyframes backgroundImages {
+        0% {
+            background-image: url(./img/bgIMG.png);
+        }
+
+        33% {
+            background-image: url(./img/bgIMG1.png);
+        }
+
+        66% {
+            background-image: url(./img/bgIMG2.png);
+        }
+
+        100% {
+            background-image: url(./img/bgIMG3.png);
+        }
+
+    }
 
     .left_clm {
         width: 30%;

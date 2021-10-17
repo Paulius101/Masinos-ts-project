@@ -136,10 +136,6 @@ function loadCars() {
         var newCar = new Cars(car.model, car.date, car.color, car.fuel, car.id);
         cars.push(newCar);
     }
-    var id = cars.map(function (car) {
-        return car.id;
-    });
-    console.log(id);
     display();
 }
 loadCars();
