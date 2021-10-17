@@ -55,7 +55,7 @@ function saveFormButton() {
         date === '' ||
         color === '' ||
         fuel === '') {
-        alert("ERROR, truksta informacijos");
+        alert("ERROR: truksta informacijos");
         return;
     }
     ;
@@ -97,6 +97,14 @@ function updateEntry(id) {
             car.color = document.getElementById('color').value;
             car.date = document.getElementById('date').value;
             car.fuel = document.getElementById('fuel').value;
+            if (car.model === '' ||
+                car.date === '' ||
+                car.color === '' ||
+                car.fuel === '') {
+                alert("ERROR: truksta informacijos");
+                return;
+            }
+            ;
         }
     }
     renderAddForm();

@@ -113,11 +113,11 @@ function saveFormButton() {
     const color = DOMs.colorInput.value;
     const fuel = DOMs.fuelInput.value;
 
-     if (model === '' ||
+    if (model === '' ||
         date === '' ||
         color === '' ||
         fuel === '') {
-        alert("ERROR, truksta informacijos")
+        alert("ERROR: truksta informacijos")
         return
     };
 
@@ -147,7 +147,7 @@ function editEntry(id: number): void {
     for (const car of cars) {
         if (car.id === id) {
             car.renderUpdateForm()
-              formSaveDOM.innerHTML = '';
+            formSaveDOM.innerHTML = '';
         }
     }
     formSaveDOM.classList.add('hide');
@@ -162,8 +162,16 @@ function updateEntry(id: number): void {
             car.color = (document.getElementById('color') as HTMLInputElement).value
             car.date = (document.getElementById('date') as HTMLInputElement).value
             car.fuel = (document.getElementById('fuel') as HTMLInputElement).value
+            if (car.model === '' ||
+                car.date === '' ||
+                car.color === '' ||
+                car.fuel === '') {
+                alert("ERROR: truksta informacijos")
+                return
+            };
         }
     }
+
     renderAddForm()
     formUpdateDOM.innerHTML = '';
     formSaveDOM.classList.remove('hide');
@@ -218,11 +226,11 @@ function loadCars(): void {
             car.date,
             car.color,
             car.fuel,
-            car.id,)
+            car.id, )
 
-            cars.push(newCar);
-        }
-        display();
+        cars.push(newCar);
     }
+    display();
+}
 
-    loadCars()
+loadCars()
