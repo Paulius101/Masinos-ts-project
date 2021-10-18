@@ -7,14 +7,11 @@ var formSaveDOM = document.getElementById('add_car');
 var formUpdateDOM = document.getElementById('update_car');
 var listDOM = document.getElementById('list');
 function renderAddForm() {
+    console.log("rendering add form");
     return formSaveDOM.innerHTML = "<form>\n                <input id=\"model\" type=\"text\" placeholder=\"Modelis\">\n                <input id=\"date\" type=\"date\" placeholder=\"Pagaminimo data\">\n                <input id=\"color\" type=\"text\" placeholder=\"Spalva\">\n                <select id=\"fuel\">\n                <option value=\"\" disabled selected>Kuro tipas</option>\n                    <option value=\"" + fuelTypes.benzinas + "\">Benzinas</option>\n                    <option value=\"" + fuelTypes.dyzelinas + "\">Dyzelinas</option>\n                </select>\n\n                <button id=\"save\"  onclick=\"saveFormButton() \"type=\"button\">Prideti</button>\n                <input type=\"reset\"  id=\"reset\" value=\"Atnaujinti forma\">\n            </form>";
 }
 renderAddForm();
 var DOMs = {
-    modelInput: document.getElementById('model'),
-    dateInput: document.getElementById('date'),
-    colorInput: document.getElementById('color'),
-    fuelInput: document.getElementById('fuel'),
     saveFormButton: formSaveDOM.querySelector('button'),
     editFormButton: formUpdateDOM.querySelector('button'),
     allFilter: document.getElementById('all'),
@@ -46,11 +43,10 @@ var Cars = /** @class */ (function () {
 var CARS_LOCAL_STORAGE_KEY = "vrumvrum";
 var cars = [];
 function saveFormButton() {
-    formUpdateDOM.innerHTML = '';
-    var model = DOMs.modelInput.value;
-    var date = DOMs.dateInput.value;
-    var color = DOMs.colorInput.value;
-    var fuel = DOMs.fuelInput.value;
+    var model = document.getElementById('model').value;
+    var date = document.getElementById('date').value;
+    var color = document.getElementById('color').value;
+    var fuel = document.getElementById('fuel').value;
     if (model === '' ||
         date === '' ||
         color === '' ||
@@ -59,6 +55,7 @@ function saveFormButton() {
         return;
     }
     ;
+    //cia yra issue
     var newCar = new Cars(model, date, color, fuel);
     cars.push(newCar);
     console.log(cars);
@@ -107,6 +104,10 @@ function updateEntry(id) {
             ;
         }
     }
+    document.getElementById('model').value = '';
+    document.getElementById('color').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('fuel').value = '';
     renderAddForm();
     formUpdateDOM.innerHTML = '';
     formSaveDOM.classList.remove('hide');

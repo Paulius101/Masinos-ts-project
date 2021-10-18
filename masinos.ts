@@ -17,6 +17,8 @@ const listDOM = document.getElementById('list') as HTMLElement
 
 
 function renderAddForm(): string {
+    console.log("rendering add form");
+
     return formSaveDOM.innerHTML = `<form>
                 <input id="model" type="text" placeholder="Modelis">
                 <input id="date" type="date" placeholder="Pagaminimo data">
@@ -35,10 +37,6 @@ function renderAddForm(): string {
 renderAddForm()
 
 const DOMs = {
-    modelInput: document.getElementById('model') as HTMLInputElement,
-    dateInput: document.getElementById('date') as HTMLInputElement,
-    colorInput: document.getElementById('color') as HTMLInputElement,
-    fuelInput: document.getElementById('fuel') as HTMLInputElement,
     saveFormButton: formSaveDOM.querySelector('button') as HTMLButtonElement,
     editFormButton: formUpdateDOM.querySelector('button') as HTMLButtonElement,
     allFilter: document.getElementById('all') as HTMLButtonElement,
@@ -107,11 +105,10 @@ const CARS_LOCAL_STORAGE_KEY = "vrumvrum";
 let cars: Cars[] = [];
 
 function saveFormButton() {
-    formUpdateDOM.innerHTML = '';
-    const model = DOMs.modelInput.value;
-    const date = DOMs.dateInput.value;
-    const color = DOMs.colorInput.value;
-    const fuel = DOMs.fuelInput.value;
+    const model = (document.getElementById('model') as HTMLInputElement).value;
+    const date = (document.getElementById('date') as HTMLInputElement).value
+    const color = (document.getElementById('color') as HTMLInputElement).value
+    const fuel = (document.getElementById('fuel') as HTMLInputElement).value
 
     if (model === '' ||
         date === '' ||
@@ -120,7 +117,7 @@ function saveFormButton() {
         alert("ERROR: truksta informacijos")
         return
     };
-
+    //cia yra issue
     const newCar = new Cars(model, date, color, fuel)
 
     cars.push(newCar)
@@ -171,7 +168,10 @@ function updateEntry(id: number): void {
             };
         }
     }
-
+    (document.getElementById('model') as HTMLInputElement).value = '';
+    (document.getElementById('color') as HTMLInputElement).value = '';
+    (document.getElementById('date') as HTMLInputElement).value = '';
+    (document.getElementById('fuel') as HTMLInputElement).value = '';
     renderAddForm()
     formUpdateDOM.innerHTML = '';
     formSaveDOM.classList.remove('hide');
